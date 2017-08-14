@@ -1,8 +1,16 @@
 <template>
 	<div class="JobList">
-		<h1>List of Posts from Element API</h1>
+		<div class="form-group">
+			<label for="keyword">Job Title</label>
+			<input v-model="keyword"
+			name="keyword"
+			id="keyword" 
+			placeholder="Search by job title" 
+			class="form-control">
+		</div>
+		<h1>Showing {{ filteredByKeyword.length }} entries</h1>
 		<ul class="list-group">
-			<li class="list-group-item" v-for="entry in jobs">{{ entry.title }}</li >
+			<li class="list-group-item" v-for="entry in filteredByKeyword">{{ entry.title }}</li >
 		</ul>
 	</div>
 </template>
@@ -12,7 +20,8 @@
 		name: 'joblist',
 		data () {
 			return {
-				jobs: []
+				jobs: [],
+				keyword: ''
 			}
 		},
 		mounted () {
@@ -26,7 +35,18 @@
   					this.jobs = response.data.data
   				})
   			}
-  		}
+  		},
+  		computed: {
+  			filteredByKeyword() {
+    			return getByKeyword(this.jobs, this.keyword)
+  			}
+		}
+	}
+
+	function getByKeyword(jobs, keyword) {
+		const search = keyword.trim().toLowerCase()
+		if (!search.length) return jobs
+  		return jobs.filter(item => item.name.toLowerCase().indexOf(search) > -1)
 	}
 </script>
 
