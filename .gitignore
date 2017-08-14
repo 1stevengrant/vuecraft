@@ -1,0 +1,9 @@
+/vendor/
+/craft/app/
+/craft/plugins/
+/craft/storage
+/public/
+composer*
+/node_modules
+/craft/config/redactor
+/craft/config/general.php

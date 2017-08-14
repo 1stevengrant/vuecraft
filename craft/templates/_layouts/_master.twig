@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Craft App</title>
+
+{% if craft.config.devMode %}
+<link rel="stylesheet" href="http://localhost:8080/css/app.css">
+{% else %}
+<link rel="stylesheet" href="/css/app.css">
+{% endif %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+<body>
+{% block content %}{% endblock %}
+{% if craft.config.devMode %}
+<script src="http://localhost:8080/js/main.js"></script>
+{% else %}
+<script src="/js/main.js"></script>
+{% endif %}
+</body>
+</html>
