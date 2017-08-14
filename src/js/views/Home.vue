@@ -1,11 +1,16 @@
 <template>
-  <div>
-    <h1>This is the home page</h1>
+  <div class="Home">
+    <joblist></joblist>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'home'
-}
+	import joblist from '../components/JobList'
+	export default {
+	  name: 'home',
+	  components: { joblist }
+	}
 </script>
+
+<style>
+</style>
