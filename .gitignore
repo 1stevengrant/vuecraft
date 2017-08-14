@@ -7,3 +7,4 @@ composer*
 /node_modules
 /craft/config/redactor
 /craft/config/general.php
+.DS_Store

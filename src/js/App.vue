@@ -1,20 +1,28 @@
 <template>
   <div id="app">
-    <h1>{{ welcomeMessage }}</h1>
+    <mast></mast>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <router-view></router-view>
+        </div>
+      </div>
+      <siteFooter></siteFooter>
+    </div>
   </div>
 </template>
 
 <script>
+import mast from './components/Header/Mast'
+import siteFooter from './components/SiteFooter'
+
 export default {
   name: 'app',
-  data () {
-    return {
-      welcomeMessage: 'Hello World'
-    }
-  }
+  components: { siteFooter, mast },
 }
+
 </script>
 
 <style lang="scss">
-@import "../../node_modules/bootstrap/scss/bootstrap"
+@import '../scss/app';
 </style>
